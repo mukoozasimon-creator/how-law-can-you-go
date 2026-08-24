@@ -1,0 +1,30 @@
+name: Nightly LegiScan Ingest
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Fetch LegiScan updates
+        env:
+          LEGISCAN_KEY: ${{ secrets.LEGISCAN_KEY }}
+        run: |
+          mkdir -p src/content/updates
+          for state in GA TX WA FL NV VA OH NY PA IL; do
+            curl -s "https://api.legiscan.com/v1/?key=${LEGISCAN_KEY}&op=getSearch&state=${state}&query=traffic+stop+eluding+passenger+identification" \
+              > "src/content/updates/${state}-$(date +%Y%m%d).json" || true
+          done
+          
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add src/content/updates/
+          git diff --cached --quiet || git commit -m "nightly: LegiScan ingest $(date +%Y-%m-%d)"
+          git push || true
