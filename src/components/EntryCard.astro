@@ -1,0 +1,88 @@
+---
+export interface Props {
+  id: string;
+  category: string;
+  topic: string;
+  verdict: string;
+  states: string[];
+  lastVerified: string;
+  riskLevel: string;
+}
+const { id, category, topic, verdict, states, lastVerified, riskLevel } = Astro.props;
+
+const verdictLabels: Record<string, {label: string; color: string}> = {
+  settled: {label: 'Settled', color: 'var(--green)'},
+  varies: {label: 'Varies', color: 'var(--red)'},
+  debunked: {label: 'Debunked', color: 'var(--gold)'},
+  misrepresented: {label: 'Misrepresented', color: 'var(--gold)'}
+};
+
+const v = verdictLabels[verdict] || verdictLabels.settled;
+const stateList = states.join(', ');
+---
+
+<div class="entry-card" data-states={stateList} style="background:#fff;border:1px solid var(--rule);border-radius:8px;margin:22px 0;overflow:hidden;box-shadow:0 2px 12px rgba(20,16,12,.06);">
+  <div style="background:var(--ink);color:#f5f0e6;padding:12px 20px;">
+    <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#d9a441;">
+      {category} &middot; Entry {id}
+    </div>
+    <div style="font-size:20px;font-weight:700;letter-spacing:-.02em;margin-top:2px;">
+      {topic}
+    </div>
+  </div>
+  <div style="padding:20px 22px;">
+    <div style="margin-bottom:12px;">
+      <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:{v.color}20;color:{v.color};margin-right:6px;">
+        {v.label}
+      </span>
+      <span style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;color:var(--mute);">
+        {states.length} state{states.length > 1 ? 's' : ''} &middot; Risk: {riskLevel}
+      </span>
+    </div>
+    <slot />
+    <div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--rule);display:flex;gap:12px;flex-wrap:wrap;">
+      <button class="share-btn" data-id={id} data-topic={topic} style="padding:8px 14px;background:var(--ink);color:#f5f0e6;border:none;border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">
+        Share this entry
+      </button>
+      <a href={`/entry/${id}`} style="padding:8px 14px;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;text-decoration:none;display:inline-block;">
+        Read full entry
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', async function() {
+      const id = this.dataset.id;
+      const topic = this.dataset.topic;
+      const url = window.location.origin + '/entry/' + id;
+      const text = `I just read about ${topic} on How Law Can You Go? — every claim has receipts. ${url}`;
+
+      // Track share in localStorage for flex layer
+      let shares = parseInt(localStorage.getItem('hlcyg_shares') || '0', 10);
+      shares++;
+      localStorage.setItem('hlcyg_shares', shares.toString());
+
+      // Track which entries have been shared
+      let sharedEntries = JSON.parse(localStorage.getItem('hlcyg_shared_entries') || '[]');
+      if (!sharedEntries.includes(id)) sharedEntries.push(id);
+      localStorage.setItem('hlcyg_shared_entries', JSON.stringify(sharedEntries));
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: topic, text, url });
+        } catch (e) {
+          // User cancelled or share failed
+        }
+      } else {
+        await navigator.clipboard.writeText(text);
+        this.textContent = 'Copied!';
+        setTimeout(() => this.textContent = 'Share this entry', 2000);
+      }
+
+      // Dispatch event for flex layer
+      window.dispatchEvent(new CustomEvent('hlcyg:activity', { detail: { type: 'share', id } }));
+    });
+  });
+</script>

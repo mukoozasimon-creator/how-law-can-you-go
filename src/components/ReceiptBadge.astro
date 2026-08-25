@@ -1,0 +1,11 @@
+---
+export interface Props {
+  lastVerified: string;
+}
+const { lastVerified } = Astro.props;
+---
+
+<div class="receipt-badge" style="display:inline-flex;align-items:center;gap:6px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:2px;background:#f0eade;color:#5a4d3a;border:1px solid #d9cdb8;">
+  <span style="color:var(--green);">&#10003;</span>
+  Receipts attached — last checked {lastVerified}. Laws change. This is not legal advice.
+</div>

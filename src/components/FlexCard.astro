@@ -1,0 +1,124 @@
+---
+// FlexCard: generates a shareable rap-sheet image client-side
+// No server state. All data from localStorage.
+---
+
+<div id="flex-card-container" style="margin:20px 0;display:none;">
+  <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;font-weight:700;">
+    Your flex card
+  </div>
+
+  <div id="flex-card-preview" style="background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;box-shadow:0 2px 14px rgba(20,16,12,.07);max-width:400px;">
+    <div style="background:var(--ink);color:#f5f0e6;padding:12px 20px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;">
+      <span id="flex-tier-name">Civilian</span>
+      <span style="opacity:.6;">howlawcanyougo.com</span>
+    </div>
+    <div style="padding:20px 22px;">
+      <div id="flex-state" style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;color:var(--mute);letter-spacing:.04em;margin-bottom:10px;">
+        UNITED STATES
+      </div>
+      <div id="flex-quip" style="font-size:18px;line-height:1.35;margin-bottom:12px;font-weight:600;">
+        I have broken 0 laws this month. I know which ones are real.
+      </div>
+      <div id="flex-tags" style="margin-bottom:12px;">
+        <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:#dff0e6;color:var(--green);margin-right:6px;">0 States Mastered</span>
+        <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:#fbe3e1;color:var(--red);margin-right:6px;">0-Day Streak</span>
+      </div>
+      <div style="background:#f7f3e9;border-left:3px solid var(--blue);padding:10px 14px;font-size:14px;font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.5;color:#3a332b;">
+        <strong>Latest catch:</strong> <span id="flex-latest">Nothing yet. Start reading.</span>
+      </div>
+      <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:10.5px;color:var(--mute);margin-top:12px;padding-top:10px;border-top:1px solid var(--rule);">
+        <span id="flex-url">howlawcanyougo.com</span> &middot; <span id="flex-shares">0 shares</span> &middot; Receipts attached
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;display:flex;gap:10px;">
+    <button id="flex-share-btn" style="padding:10px 18px;background:var(--ink);color:#f5f0e6;border:none;border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">
+      Share rap sheet
+    </button>
+    <button id="flex-download-btn" style="padding:10px 18px;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;cursor:pointer;">
+      Download image
+    </button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const container = document.getElementById('flex-card-container');
+    const preview = document.getElementById('flex-card-preview');
+    if (!container || !preview) return;
+
+    function getTier(entriesRead, shares, statesMastered, streak) {
+      if (entriesRead >= 100 && shares >= 50 && statesMastered >= 25 && streak >= 30) return { name: 'Most Wanted', color: '#14100c', border: 'var(--red)' };
+      if (entriesRead >= 50 && shares >= 25 && statesMastered >= 12 && streak >= 7) return { name: 'Outlaw', color: '#14100c', border: 'var(--red)' };
+      if (entriesRead >= 25 && shares >= 10 && statesMastered >= 5) return { name: 'Paralegal', color: '#b8860b', border: '#b8860b' };
+      if (entriesRead >= 10 && shares >= 3 && statesMastered >= 2) return { name: 'Informant', color: '#6b6156', border: '#6b6156' };
+      if (entriesRead >= 3 || shares >= 1) return { name: 'Snitch', color: '#8a7d6b', border: '#8a7d6b' };
+      return { name: 'Civilian', color: '#bdb3a4', border: '#bdb3a4' };
+    }
+
+    function update() {
+      const entries = parseInt(localStorage.getItem('hlcyg_entries_read') || '0', 10);
+      const shares = parseInt(localStorage.getItem('hlcyg_shares') || '0', 10);
+      const states = JSON.parse(localStorage.getItem('hlcyg_states_mastered') || '[]');
+      const streak = parseInt(localStorage.getItem('hlcyg_streak') || '0', 10);
+      const latest = localStorage.getItem('hlcyg_latest_entry_title') || 'Nothing yet. Start reading.';
+      const stateCode = localStorage.getItem('hlcyg_state') || '';
+
+      if (entries === 0 && shares === 0) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+      const tier = getTier(entries, shares, states.length, streak);
+
+      document.getElementById('flex-tier-name').textContent = tier.name;
+      document.getElementById('flex-tier-name').parentElement.style.borderBottom = `3px solid ${tier.border}`;
+      document.getElementById('flex-state').textContent = stateCode ? `UNITED STATES › ${stateCode}` : 'UNITED STATES';
+      document.getElementById('flex-quip').textContent = `I have read ${entries} law${entries !== 1 ? 's' : ''}. I know which ones are real.`;
+      document.getElementById('flex-tags').innerHTML = `
+        <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:#dff0e6;color:var(--green);margin-right:6px;">${states.length} State${states.length !== 1 ? 's' : ''} Mastered</span>
+        <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:#fbe3e1;color:var(--red);margin-right:6px;">${streak}-Day Streak</span>
+      `;
+      document.getElementById('flex-latest').textContent = latest;
+      document.getElementById('flex-shares').textContent = shares + ' share' + (shares !== 1 ? 's' : '');
+    }
+
+    update();
+    window.addEventListener('hlcyg:activity', update);
+
+    // Share button
+    document.getElementById('flex-share-btn')?.addEventListener('click', async function() {
+      const entries = parseInt(localStorage.getItem('hlcyg_entries_read') || '0', 10);
+      const shares = parseInt(localStorage.getItem('hlcyg_shares') || '0', 10);
+      const states = JSON.parse(localStorage.getItem('hlcyg_states_mastered') || '[]');
+      const tier = getTier(entries, shares, states.length, 0);
+      const text = `I'm a ${tier.name} on How Law Can You Go? — ${entries} laws read, ${states.length} states mastered, ${shares} shares. Receipts attached. https://howlawcanyougo.com`;
+
+      if (navigator.share) {
+        try { await navigator.share({ title: 'My How Law Can You Go? Rap Sheet', text, url: 'https://howlawcanyougo.com' }); } catch(e){}
+      } else {
+        await navigator.clipboard.writeText(text);
+        this.textContent = 'Copied!';
+        setTimeout(() => this.textContent = 'Share rap sheet', 2000);
+      }
+    });
+
+    // Download as image (using html-to-image or canvas)
+    document.getElementById('flex-download-btn')?.addEventListener('click', async function() {
+      // Fallback: copy text description if html-to-image not loaded
+      const entries = parseInt(localStorage.getItem('hlcyg_entries_read') || '0', 10);
+      const shares = parseInt(localStorage.getItem('hlcyg_shares') || '0', 10);
+      const states = JSON.parse(localStorage.getItem('hlcyg_states_mastered') || '[]');
+      const tier = getTier(entries, shares, states.length, 0);
+      const text = `[How Law Can You Go? — ${tier.name}]
+${entries} laws read | ${states.length} states mastered | ${shares} shares
+Every claim has receipts. https://howlawcanyougo.com`;
+      await navigator.clipboard.writeText(text);
+      this.textContent = 'Copied text!';
+      setTimeout(() => this.textContent = 'Download image', 2000);
+    });
+  })();
+</script>

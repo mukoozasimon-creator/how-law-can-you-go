@@ -1,0 +1,138 @@
+---
+id: "survival-001"
+category: "Police Encounters"
+topic: "You are the passenger. The car gets stopped."
+verdict: "varies"
+states: ["FL", "WA", "TX", "NV", "VA", "OH", "GA", "NY", "PA", "IL"]
+last_verified: "2026-08-23"
+risk_level: "high"
+jurisdiction_required: true
+receipts:
+  - source: "Brendlin v. California"
+    citation: "551 U.S. 249 (2007)"
+    url: "https://www.supremecourt.gov/opinions/06pdf/06-8120.pdf"
+    type: "case"
+    quote: "A traffic stop of a car communicates to a reasonable passenger that he or she is not free to terminate the encounter with the police and go about his or her business."
+  - source: "Maryland v. Wilson"
+    citation: "519 U.S. 408 (1997)"
+    url: "https://www.supremecourt.gov/opinions/96pdf/95-1268.pdf"
+    type: "case"
+    quote: "An officer making a traffic stop may order passengers to exit the vehicle pending completion of the stop."
+  - source: "Arizona v. Johnson"
+    citation: "555 U.S. 323 (2009)"
+    url: "https://www.supremecourt.gov/opinions/08pdf/07-1122.pdf"
+    type: "case"
+    quote: "A police officer may conduct a patdown search of a passenger if the officer has a reasonable suspicion that the passenger is armed and dangerous."
+  - source: "Berkemer v. McCarty"
+    citation: "468 U.S. 420 (1984)"
+    url: "https://www.supremecourt.gov/opinions/83pdf/83-710.pdf"
+    type: "case"
+    quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
+  - source: "Rodriguez v. United States"
+    citation: "575 U.S. 348 (2015)"
+    url: "https://www.supremecourt.gov/opinions/14pdf/13-9972_8m58.pdf"
+    type: "case"
+    quote: "A seizure justified only by a police-observed traffic violation becomes unlawful if it is prolonged beyond the time reasonably required to complete the mission of issuing a ticket."
+  - source: "Hiibel v. Sixth Judicial District Court"
+    citation: "542 U.S. 177 (2004)"
+    url: "https://www.supremecourt.gov/opinions/03pdf/03-5554.pdf"
+    type: "case"
+    quote: "The request for identity has an immediate relation to the purpose, rationale, and practical demands of a Terry stop."
+  - source: "United States v. Landeros"
+    citation: "913 F.3d 862 (9th Cir. 2019)"
+    url: "https://cdn.ca9.uscourts.gov/datastore/opinions/2019/01/23/16-10396.pdf"
+    type: "case"
+    quote: "A demand for a passenger's identification is not permitted without an independent reason to suspect the passenger of wrongdoing."
+  - source: "United States v. Soriano-Jarquin"
+    citation: "492 F.3d 495 (4th Cir. 2007)"
+    url: "https://www.ca4.uscourts.gov/opinions/Published/064821.P.pdf"
+    type: "case"
+    quote: "An officer may request that a passenger produce identification."
+  - source: "Johnson v. Nocco"
+    citation: "83 F.4th 896 (11th Cir. 2023)"
+    url: "https://www.ca11.uscourts.gov/opinions/pub/2023/22-10476.pdf"
+    type: "case"
+    quote: "Qualified immunity protects officers from suit unless they violate clearly established statutory or constitutional rights."
+  - source: "State v. Rankin"
+    citation: "151 Wn.2d 689 (2004)"
+    url: "https://www.courts.wa.gov/opinions/pdf/723258.pdf"
+    type: "case"
+    quote: "Article I, section 7 of the Washington Constitution affords greater protection than the Fourth Amendment against police questioning."
+  - source: "Presley v. State"
+    citation: "227 So. 3d 95 (Fla. 2017)"
+    url: "https://www.floridasupremecourt.org/content/download/723398/7856042/file/SC16-1223.pdf"
+    type: "case"
+    quote: "A passenger in a lawfully stopped vehicle is not free to leave the scene of the traffic stop without police permission."
+  - source: "Rakas v. Illinois"
+    citation: "439 U.S. 128 (1978)"
+    url: "https://www.supremecourt.gov/opinions/77pdf/77-5781.pdf"
+    type: "case"
+    quote: "A passenger does not have standing to challenge a search of a vehicle in which he was merely riding."
+  - source: "Nevada NRS 171.123(3)"
+    citation: "NRS 171.123(3)"
+    url: "https://www.leg.state.nv.us/NRS/NRS-171.html#NRS171Sec123"
+    type: "statute"
+    quote: "The officer may detain the person pursuant to this section only to ascertain his identity and the suspicious circumstances surrounding his presence abroad."
+  - source: "Ohio R.C. 2921.29"
+    citation: "Ohio Rev. Code § 2921.29"
+    url: "https://codes.ohio.gov/ohio-revised-code/section-2921.29"
+    type: "statute"
+    quote: "No person who is in a public place shall refuse to disclose the person's name, address, or date of birth, when requested by a law enforcement officer."
+  - source: "Illinois 725 ILCS 5/107-14"
+    citation: "725 ILCS 5/107-14"
+    url: "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=1705&ChapAct=725%26nbsp%3BILCS%26nbsp%3B5%2F&ChapterID=41&ChapterName=CRIMINAL+PROCEDURE&ActName=Criminal+Code+of+1961."
+    type: "statute"
+    quote: "A peace officer may stop any person in a public place for a reasonable period of time when the officer reasonably infers from the circumstances that the person is committing, is about to commit or has committed an offense."
+  - source: "Arizona A.R.S. 13-2412"
+    citation: "A.R.S. § 13-2412"
+    url: "https://www.azleg.gov/ars/13/02412.htm"
+    type: "statute"
+    quote: "It is unlawful for a person, after being advised that the person's refusal to answer is unlawful, to fail or refuse to state the person's true full name."
+  - source: "Texas Penal Code 38.02"
+    citation: "Tex. Penal Code § 38.02"
+    url: "https://statutes.capitol.texas.gov/Docs/PE/htm/PE.38.htm"
+    type: "statute"
+    quote: "A person commits an offense if he intentionally refuses to give his name, residence address, or date of birth to a peace officer who has lawfully arrested the person."
+---
+
+<div class="quip">Everything you have been told about this is half right, which is the worst amount of right.</div>
+
+<div class="settled">
+<b>Settled everywhere in America</b>
+<ul>
+<li><strong>You are seized the moment the car stops.</strong> <em>Brendlin v. California</em>, 551 U.S. 249 (2007), unanimous. And this cuts against you, not for you: being seized means you are <em>less</em> free to go, not more. People quote this case to argue they can walk away. It says the opposite.</li>
+<li><strong>The officer can order you out of the car.</strong> <em>Maryland v. Wilson</em>, 519 U.S. 408 (1997). The Court expressly declined to decide whether you can be <em>forcibly detained</em> for the whole stop.</li>
+<li><strong>You can only be frisked on suspicion that you specifically are armed and dangerous.</strong> <em>Arizona v. Johnson</em>, 555 U.S. 323 (2009).</li>
+<li><strong>You do not have to answer questions,</strong> and roadside is usually not custodial for Miranda. <em>Berkemer v. McCarty</em>, 468 U.S. 420 (1984).</li>
+<li><strong>The stop cannot be prolonged past its mission.</strong> <em>Rodriguez v. United States</em>, 575 U.S. 348 (2015). This clock, not the ID statutes, is what actually governs the argument.</li>
+<li><strong>We could find no federal statute requiring a passenger to carry or produce identification. This is not the same as saying none exists.</strong></li>
+</ul>
+</div>
+
+<div class="varies">
+<b>Varies, and this is where people get arrested</b>
+<ul>
+<li><strong>Whether refusing to state your name is itself a crime.</strong> Ninth Circuit: no, absent suspicion as to you (<em>United States v. Landeros</em>, 913 F.3d 862 (2019)). Fourth Circuit: an officer may request passenger ID (<em>United States v. Soriano-Jarquin</em>, 492 F.3d 495 (2007)). Eleventh Circuit: resolved on qualified immunity, so you may be arrested unlawfully and still lose the suit (<em>Johnson v. Nocco</em>, 83 F.4th 896 (2023)).</li>
+<li><strong>Your state constitution may give you more.</strong> Washington forbids even requesting passenger ID without an independent basis. <em>State v. Rankin</em>, 151 Wn.2d 689 (2004), under Wash. Const. art. I, § 7.</li>
+<li><strong>Whether you can simply leave.</strong> Florida says no, as a matter of course. <em>Presley v. State</em>, 227 So. 3d 95 (Fla. 2017).</li>
+<li><strong>The trapdoor nobody mentions:</strong> if the officer sees you unbelted in a primary-enforcement state, or sees an open container, you stop being a bystander and become a suspect, which switches the state's stop-and-identify statute on.</li>
+</ul>
+</div>
+
+<div class="wrongbox">
+<b>Six things the internet tells you that are wrong</b>
+<ul>
+<li>"Hiibel means you must show ID." Backwards. <em>Hiibel v. Sixth Judicial District Court</em>, 542 U.S. 177 (2004) says explicitly that no document is required, only a name, and only where there is reasonable suspicion as to you.</li>
+<li>"I'm just a passenger, I'm free to go." <em>Brendlin</em> says you are detained.</li>
+<li>"They can't frisk me." They can, on armed-and-dangerous suspicion, which is a low bar.</li>
+<li>"I'll get it suppressed, they had no right to search the car." <strong>This is the expensive one.</strong> Under <em>Rakas v. Illinois</em>, 439 U.S. 128 (1978), a passenger usually has no standing to challenge a search of a car they were merely riding in. You can attack the stop. You generally cannot attack the search.</li>
+<li>"You never have to ID as a passenger." Wrong in the Fourth and Eleventh Circuits, and wrong anywhere there is independent suspicion.</li>
+<li>"Refusing to answer means they have to let me go." Unrelated questioning is allowed if it adds no time.</li>
+</ul>
+</div>
+
+<div class="cite">
+<strong>Negative finding, publish it exactly this way:</strong> across the five stop-and-identify statutes read directly (Nevada NRS 171.123(3), Ohio R.C. 2921.29, Illinois 725 ILCS 5/107-14, Arizona A.R.S. 13-2412, Texas Penal Code 38.02), <em>none</em> requires a mere passenger to produce a physical ID document. Texas is the cleanest proof: the legislature wrote a vehicle-specific ID duty in 2023 and applied it to <strong>operators only</strong>. But this is five states, not fifty. Say "we could not find one," never "there is none."
+<br><br>
+<strong>Also:</strong> the circulating "24 stop-and-identify states" and "28 states" lists are unreliable. Several entries on them are resisting-arrest or police-powers statutes, not stop-and-identify statutes at all. Do not publish a 50-state map from any existing compilation. Open every statute yourself.
+</div>

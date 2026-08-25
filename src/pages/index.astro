@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JurisdictionPicker from '../components/JurisdictionPicker.astro';
+import EntryCard from '../components/EntryCard.astro';
+import BadgeTray from '../components/BadgeTray.astro';
+import FlexCard from '../components/FlexCard.astro';
+
+const entries = await Astro.glob('./content/entries/*.md');
+const debunks = await Astro.glob('./content/debunks/*.md');
+const allContent = [...entries, ...debunks];
+
+function getFrontmatter(m: any) {
+  return m.frontmatter;
+}
+---
+
+<BaseLayout title="How Law Can You Go?" description="A sarcastic, sourced, cross-border map of the laws nobody told you about.">
+  <header class="top">
+    <div class="kicker">Not legal advice &middot; Every claim has receipts</div>
+    <h1>How Law Can You Go?</h1>
+    <p class="dek">A sarcastic, sourced map of the laws nobody told you about. Pick your state. Read the statutes. Know what is actually true.</p>
+    <div class="meta">Last updated 23 August 2026 &middot; {allContent.length} entries &middot; 10 states &middot; Receipts attached</div>
+  </header>
+
+  <BadgeTray />
+
+  <JurisdictionPicker />
+
+  <FlexCard />
+
+  <h2><span class="num">01</span>Survival Law</h2>
+  <p class="lede">The stuff that actually happens to you. Read before you need it.</p>
+
+  {entries.map(entry => {
+    const fm = entry.frontmatter;
+    return (
+      <EntryCard 
+        id={fm.id}
+        category={fm.category}
+        topic={fm.topic}
+        verdict={fm.verdict}
+        states={fm.states}
+        lastVerified={fm.last_verified}
+        riskLevel={fm.risk_level}
+      >
+        <div set:html={entry.compiledContent().slice(0, 400) + '...'} />
+      </EntryCard>
+    );
+  })}
+
+  <h2><span class="num">02</span>Debunk</h2>
+  <p class="lede">That law you have been telling people at parties? It is probably fake. Here is the receipt.</p>
+
+  {debunks.map(entry => {
+    const fm = entry.frontmatter;
+    return (
+      <EntryCard 
+        id={fm.id}
+        category={fm.category}
+        topic={fm.topic}
+        verdict={fm.verdict}
+        states={fm.states}
+        lastVerified={fm.last_verified}
+        riskLevel={fm.risk_level}
+      >
+        <div set:html={entry.compiledContent().slice(0, 400) + '...'} />
+      </EntryCard>
+    );
+  })}
+
+  <div class="card" style="margin-top:40px;">
+    <h4>Get the weekly drop</h4>
+    <p style="margin-bottom:12px;">One survival law, one debunk, every Monday. No spam. Unsubscribe anytime.</p>
+    <form action="https://app.kit.com/forms/YOUR_FORM_ID/subscriptions" method="post" style="display:flex;gap:8px;flex-wrap:wrap;">
+      <input type="email" name="email_address" placeholder="you@example.com" required style="padding:10px 14px;font-size:15px;border:1px solid var(--rule);border-radius:3px;flex:1;min-width:200px;background:#fff;">
+      <button type="submit" style="padding:10px 20px;background:var(--ink);color:#f5f0e6;border:none;border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;font-weight:700;cursor:pointer;">Subscribe</button>
+    </form>
+    <p class="fn" style="margin-top:8px;">Powered by Kit. 10,000 subscribers free. We do not sell your email.</p>
+  </div>
+</BaseLayout>

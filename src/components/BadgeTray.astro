@@ -1,0 +1,58 @@
+---
+// This component renders client-side based on localStorage stats
+---
+
+<div id="badge-tray" class="badge-tray" style="margin:20px 0;padding:16px 20px;background:var(--card);border:1px solid var(--rule);border-radius:2px;display:none;">
+  <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;font-weight:700;">
+    Your rap sheet
+  </div>
+  <div id="badge-content" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<script>
+  (function() {
+    const tray = document.getElementById('badge-tray');
+    const content = document.getElementById('badge-content');
+    if (!tray || !content) return;
+
+    function getTier(entriesRead, shares, statesMastered, streak) {
+      if (entriesRead >= 100 && shares >= 50 && statesMastered >= 25 && streak >= 30) return { name: 'Most Wanted', color: '#14100c', border: 'var(--red)', stars: 6 };
+      if (entriesRead >= 50 && shares >= 25 && statesMastered >= 12 && streak >= 7) return { name: 'Outlaw', color: '#14100c', border: 'var(--red)', stars: 5 };
+      if (entriesRead >= 25 && shares >= 10 && statesMastered >= 5) return { name: 'Paralegal', color: '#b8860b', border: '#b8860b', stars: 4 };
+      if (entriesRead >= 10 && shares >= 3 && statesMastered >= 2) return { name: 'Informant', color: '#6b6156', border: '#6b6156', stars: 3 };
+      if (entriesRead >= 3 || shares >= 1) return { name: 'Snitch', color: '#8a7d6b', border: '#8a7d6b', stars: 2 };
+      return { name: 'Civilian', color: '#bdb3a4', border: '#bdb3a4', stars: 1 };
+    }
+
+    function render() {
+      const entries = parseInt(localStorage.getItem('hlcyg_entries_read') || '0', 10);
+      const shares = parseInt(localStorage.getItem('hlcyg_shares') || '0', 10);
+      const states = JSON.parse(localStorage.getItem('hlcyg_states_mastered') || '[]').length;
+      const streak = parseInt(localStorage.getItem('hlcyg_streak') || '0', 10);
+
+      if (entries === 0 && shares === 0) {
+        tray.style.display = 'none';
+        return;
+      }
+
+      tray.style.display = 'block';
+      const tier = getTier(entries, shares, states, streak);
+      const stars = '★'.repeat(tier.stars) + '☆'.repeat(6 - tier.stars);
+
+      content.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;padding:6px 12px;border:2px solid ${tier.border};border-radius:3px;background:${tier.color};color:#fff;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;">
+          ${tier.name}
+        </div>
+        <div style="font-size:14px;color:var(--gold);letter-spacing:2px;">${stars}</div>
+        <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;color:var(--mute);">
+          ${entries} read &middot; ${shares} shared &middot; ${states} state${states !== 1 ? 's' : ''} &middot; ${streak}-day streak
+        </div>
+      `;
+    }
+
+    render();
+    window.addEventListener('hlcyg:activity', render);
+  })();
+</script>

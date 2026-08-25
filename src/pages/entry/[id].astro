@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JurisdictionPicker from '../../components/JurisdictionPicker.astro';
+import ReceiptBadge from '../../components/ReceiptBadge.astro';
+import StatuteBlock from '../../components/StatuteBlock.astro';
+import BadgeTray from '../../components/BadgeTray.astro';
+import FlexCard from '../../components/FlexCard.astro';
+
+export async function getStaticPaths() {
+  const entries = await Astro.glob('../../content/entries/*.md');
+  const debunks = await Astro.glob('../../content/debunks/*.md');
+  const all = [...entries, ...debunks];
+
+  return all.map(entry => ({
+    params: { id: entry.frontmatter.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const fm = entry.frontmatter;
+
+const verdictLabels: Record<string, {label: string; color: string}> = {
+  settled: {label: 'Settled', color: 'var(--green)'},
+  varies: {label: 'Varies', color: 'var(--red)'},
+  debunked: {label: 'Debunked', color: 'var(--gold)'},
+  misrepresented: {label: 'Misrepresented', color: 'var(--gold)'}
+};
+
+const v = verdictLabels[fm.verdict] || verdictLabels.settled;
+---
+
+<BaseLayout title={fm.topic} description={`${fm.category} — ${fm.topic}. Receipts attached.`} entryId={fm.id}>
+  <header class="top">
+    <div class="kicker">{fm.category} &middot; Entry {fm.id}</div>
+    <h1>{fm.topic}</h1>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <span style="display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;background:{v.color}20;color:{v.color};">
+        {v.label}
+      </span>
+      <ReceiptBadge lastVerified={fm.last_verified} />
+    </div>
+  </header>
+
+  <BadgeTray />
+  <JurisdictionPicker />
+
+  <div class="entry-content" data-entry-id={fm.id} set:html={entry.compiledContent()} />
+
+  <h4 style="margin-top:30px;">Receipts</h4>
+  {fm.receipts?.map((r: any) => (
+    <StatuteBlock 
+      quote={r.quote}
+      source={r.source}
+      citation={r.citation}
+      url={r.url}
+      type={r.type}
+    />
+  ))}
+
+  <div style="margin-top:30px;padding:16px 20px;background:var(--card);border:1px solid var(--rule);border-radius:2px;">
+    <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;font-weight:700;">
+      Share this entry
+    </div>
+    <button class="share-btn" data-id={fm.id} data-topic={fm.topic} style="padding:10px 18px;background:var(--ink);color:#f5f0e6;border:none;border-radius:3px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.04em;">
+      Share with receipts
+    </button>
+  </div>
+
+  <FlexCard />
+
+  <script>
+    // Track entry read for flex layer
+    (function() {
+      const content = document.querySelector('.entry-content');
+      if (!content) return;
+      const id = content.dataset.entryId;
+
+      // Mark as read after 5 seconds of visibility
+      let read = false;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !read) {
+            read = true;
+            setTimeout(() => {
+              let count = parseInt(localStorage.getItem('hlcyg_entries_read') || '0', 10);
+              count++;
+              localStorage.setItem('hlcyg_entries_read', count.toString());
+
+              // Track states mastered
+              let states = JSON.parse(localStorage.getItem('hlcyg_states_mastered') || '[]');
+              const state = localStorage.getItem('hlcyg_state');
+              if (state && !states.includes(state)) {
+                states.push(state);
+                localStorage.setItem('hlcyg_states_mastered', JSON.stringify(states));
+              }
+
+              // Track latest entry
+              const title = document.querySelector('h1')?.textContent || '';
+              localStorage.setItem('hlcyg_latest_entry_title', title);
+              localStorage.setItem('hlcyg_latest_entry_id', id);
+
+              // Streak logic
+              const today = new Date().toDateString();
+              const lastRead = localStorage.getItem('hlcyg_last_read_date');
+              let streak = parseInt(localStorage.getItem('hlcyg_streak') || '0', 10);
+              if (lastRead) {
+                const last = new Date(lastRead);
+                const diff = (new Date(today).getTime() - last.getTime()) / (1000 * 60 * 60 * 24);
+                if (diff === 1) streak++;
+                else if (diff > 1) streak = 1;
+              } else {
+                streak = 1;
+              }
+              localStorage.setItem('hlcyg_streak', streak.toString());
+              localStorage.setItem('hlcyg_last_read_date', today);
+
+              window.dispatchEvent(new CustomEvent('hlcyg:activity', { detail: { type: 'read', id } }));
+            }, 5000);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(content);
+    })();
+  </script>
+</BaseLayout>

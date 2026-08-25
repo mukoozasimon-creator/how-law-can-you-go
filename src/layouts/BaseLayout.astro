@@ -1,0 +1,212 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  entryId?: string;
+}
+
+const { title, description = "A sarcastic, sourced map of the laws nobody told you about.", entryId } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} — How Law Can You Go?</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={`${title} — How Law Can You Go?`}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="article">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:site_name" content="How Law Can You Go?">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={`${title} — How Law Can You Go?`}>
+  <meta name="twitter:description" content={description}>
+
+  <!-- Geo-block meta for crawlers: US only intent -->
+  <meta name="geo.region" content="US">
+  <meta name="geo.placename" content="United States">
+
+  <style is:global>
+    :root{
+      --ink:#14100c; --paper:#faf7f0; --rule:#e0d8c8; --mute:#6b6156;
+      --red:#b3261e; --gold:#b8860b; --green:#2f6b4f; --blue:#1f4e79;
+      --card:#fffdf7;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);
+      font-family:ui-serif,Georgia,'Iowan Old Style','Times New Roman',serif;
+      font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+    .wrap{display:grid;grid-template-columns:230px minmax(0,1fr);gap:0;max-width:1240px;margin:0 auto}
+    nav{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+      padding:28px 18px 40px;border-right:1px solid var(--rule);
+      font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:12.5px}
+    nav .brand{font-weight:800;letter-spacing:-.02em;font-size:15px;line-height:1.25;margin-bottom:4px}
+    nav .sub{color:var(--mute);font-size:11px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.08em}
+    nav a{display:block;color:var(--mute);text-decoration:none;padding:5px 0;border-bottom:1px solid transparent}
+    nav a:hover{color:var(--red)}
+    nav a .n{display:inline-block;width:20px;color:#bdb3a4;font-variant-numeric:tabular-nums}
+    main{padding:44px 46px 120px;min-width:0}
+    header.top{border-bottom:3px double var(--ink);padding-bottom:22px;margin-bottom:34px}
+    .kicker{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.18em;
+      text-transform:uppercase;color:var(--red);font-weight:700}
+    h1{font-size:46px;line-height:1.02;letter-spacing:-.03em;margin:10px 0 8px;font-weight:700}
+    .dek{font-size:19px;color:var(--mute);max-width:64ch;margin:0}
+    .meta{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11.5px;color:var(--mute);margin-top:16px;letter-spacing:.03em}
+    h2{font-size:13px;font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--red);margin:56px 0 6px;font-weight:800;
+      padding-top:20px;border-top:1px solid var(--rule)}
+    h2 .num{color:#c9bfae;margin-right:10px}
+    h3{font-size:24px;letter-spacing:-.02em;margin:26px 0 8px;line-height:1.2}
+    h4{font-size:15px;font-family:ui-sans-serif,system-ui,sans-serif;margin:22px 0 6px;letter-spacing:-.01em}
+    p{margin:0 0 14px;max-width:72ch}
+    ul,ol{max-width:72ch;padding-left:22px;margin:0 0 16px}
+    li{margin-bottom:7px}
+    strong{font-weight:700}
+    em{font-style:italic}
+    a{color:var(--blue)}
+    .lede{font-size:20px;line-height:1.5;max-width:66ch}
+    .verdict{background:var(--ink);color:#f5f0e6;padding:26px 30px;border-radius:3px;margin:26px 0 10px}
+    .verdict p{color:#e8e0d2;max-width:68ch}
+    .verdict strong{color:#fff}
+    .verdict .vh{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.18em;
+      text-transform:uppercase;color:#d9a441;font-weight:700;margin-bottom:10px}
+    table{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14px;
+      font-family:ui-sans-serif,system-ui,sans-serif}
+    th{text-align:left;border-bottom:2px solid var(--ink);padding:8px 10px 7px;font-size:11px;
+      letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700;vertical-align:bottom}
+    td{border-bottom:1px solid var(--rule);padding:9px 10px;vertical-align:top}
+    td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+    tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;background:#f3ede0}
+    .card{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--gold);
+      padding:18px 22px;margin:20px 0;border-radius:2px}
+    .card.red{border-left-color:var(--red)}
+    .card.green{border-left-color:var(--green)}
+    .card.blue{border-left-color:var(--blue)}
+    .card h4{margin-top:0}
+    .card p:last-child{margin-bottom:0}
+    .tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;
+      letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:2px;
+      background:#efe7d6;color:var(--mute);margin-right:6px;vertical-align:middle}
+    .tag.t{background:#dff0e6;color:var(--green)}
+    .tag.f{background:#fbe3e1;color:var(--red)}
+    .tag.r{background:#e6ecf5;color:var(--blue)}
+    .tag.m{background:#f8eed3;color:#8a6410}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .stat{background:var(--card);border:1px solid var(--rule);padding:16px 18px;border-radius:2px}
+    .stat .big{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1;display:block;margin-bottom:6px}
+    .stat .lbl{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11.5px;color:var(--mute);line-height:1.35}
+    .fn{font-size:13.5px;color:var(--mute);font-family:ui-sans-serif,system-ui,sans-serif;max-width:72ch}
+    .src{font-size:12px;color:var(--mute);font-family:ui-sans-serif,system-ui,sans-serif}
+    hr.sep{border:none;border-top:1px solid var(--rule);margin:34px 0}
+    .q{font-size:19px;line-height:1.45;border-left:3px solid var(--gold);padding-left:18px;margin:22px 0;
+      color:#3a332b;max-width:64ch;font-style:italic}
+    .settled{background:#f4faf6;border-left:3px solid var(--green);padding:12px 16px;margin:12px 0;
+      font-family:ui-sans-serif,system-ui,sans-serif;font-size:13.5px;line-height:1.55}
+    .varies{background:#fdf5f4;border-left:3px solid var(--red);padding:12px 16px;margin:12px 0;
+      font-family:ui-sans-serif,system-ui,sans-serif;font-size:13.5px;line-height:1.55}
+    .wrongbox{background:#f8f4e9;border-left:3px solid var(--gold);padding:12px 16px;margin:12px 0;
+      font-family:ui-sans-serif,system-ui,sans-serif;font-size:13.5px;line-height:1.55}
+    .settled b,.varies b,.wrongbox b{display:block;font-size:10.5px;letter-spacing:.12em;
+      text-transform:uppercase;margin-bottom:6px}
+    .settled b{color:var(--green)} .varies b{color:var(--red)} .wrongbox b{color:#8a6410}
+    .settled ul,.varies ul,.wrongbox ul{margin:6px 0 0;padding-left:18px;max-width:none}
+    .settled li,.varies li,.wrongbox li{margin-bottom:5px}
+    .cite{font-family:ui-sans-serif,system-ui,sans-serif;font-size:10.5px;color:var(--mute);
+      margin-top:14px;padding-top:10px;border-top:1px solid var(--rule);line-height:1.6}
+    .disclaimer{background:#f3ede0;border:1px solid var(--rule);padding:12px 16px;margin:20px 0;
+      font-family:ui-sans-serif,system-ui,sans-serif;font-size:12.5px;color:var(--mute);border-radius:2px}
+    .disclaimer strong{color:var(--ink)}
+    @media(max-width:900px){
+      .wrap{grid-template-columns:1fr}
+      nav{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule)}
+      main{padding:28px 20px 80px}
+      h1{font-size:32px}
+      .grid2,.grid3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Age Gate -->
+  <div id="age-gate" class="age-gate" style="display:none;position:fixed;inset:0;background:var(--ink);color:#f5f0e6;z-index:9999;place-items:center;padding:40px;text-align:center;font-family:ui-sans-serif,system-ui,sans-serif;">
+    <div style="max-width:400px;">
+      <h2 style="color:#d9a441;border:none;padding:0;margin:0 0 20px;font-size:28px;">How Law Can You Go?</h2>
+      <p style="color:#e8e0d2;margin-bottom:24px;">This site contains legal information for adults. Please confirm your birth year.</p>
+      <input type="number" id="birth-year" placeholder="YYYY" min="1900" max="2026" style="padding:12px 16px;font-size:16px;border:1px solid var(--rule);border-radius:3px;width:120px;text-align:center;margin-bottom:16px;background:#f5f0e6;color:var(--ink);">
+      <br>
+      <button id="age-submit" style="padding:12px 24px;background:var(--gold);color:#fff;border:none;border-radius:3px;font-weight:700;cursor:pointer;font-size:14px;">Enter</button>
+      <p id="age-error" style="color:var(--red);margin-top:12px;display:none;font-size:13px;">You must be 13 or older to use this site.</p>
+      <p style="color:#8a8075;font-size:12px;margin-top:20px;">We do not store your birth year. This check happens in your browser only.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav>
+      <div class="brand">How Law Can You Go?</div>
+      <div class="sub">Not legal advice</div>
+      <a href="/"><span class="n">00</span>Home</a>
+      <a href="/entry/survival-001"><span class="n">01</span>Passenger stops</a>
+      <a href="/entry/survival-002"><span class="n">02</span>Where to pull over</a>
+      <a href="/entry/debunk-001"><span class="n">03</span>Debunk: swan treason</a>
+      <a href="/entry/debunk-002"><span class="n">04</span>Debunk: lit area</a>
+      <a href="/entry/debunk-003"><span class="n">05</span>Debunk: answer questions</a>
+      <a href="/entry/debunk-004"><span class="n">06</span>Debunk: plank law</a>
+    </nav>
+    <main>
+      <slot />
+
+      <!-- Universal disclaimer -->
+      <div class="disclaimer">
+        <strong>Not legal advice.</strong> This site cites the law as we read it on the date shown. Laws change. We are not warranting current effect. If you are in immediate legal jeopardy, contact a lawyer licensed in your jurisdiction. <a href="/about">Read our full disclaimer</a>.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Age gate: 13+ only. No data stored server-side.
+    (function() {
+      const gate = document.getElementById('age-gate');
+      const error = document.getElementById('age-error');
+      const input = document.getElementById('birth-year');
+      const btn = document.getElementById('age-submit');
+
+      // Check if already passed
+      if (localStorage.getItem('hlcyg_age_passed') === '1') {
+        gate.style.display = 'none';
+        return;
+      }
+
+      gate.style.display = 'grid';
+
+      function checkAge() {
+        const year = parseInt(input.value, 10);
+        if (!year || isNaN(year)) { error.style.display = 'block'; return; }
+        const age = new Date().getFullYear() - year;
+        if (age >= 13) {
+          localStorage.setItem('hlcyg_age_passed', '1');
+          gate.style.display = 'none';
+        } else {
+          error.style.display = 'block';
+          input.value = '';
+        }
+      }
+
+      btn.addEventListener('click', checkAge);
+      input.addEventListener('keypress', function(e) { if (e.key === 'Enter') checkAge(); });
+    })();
+  </script>
+
+  <!-- Pagefind UI -->
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+  <script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+</body>
+</html>

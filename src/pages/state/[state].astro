@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+
+export async function getStaticPaths() {
+  const states = [
+    'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC'
+  ];
+
+  const entries = await Astro.glob('../../content/entries/*.md');
+  const debunks = await Astro.glob('../../content/debunks/*.md');
+  const all = [...entries, ...debunks];
+
+  return states.map(code => {
+    const stateEntries = all.filter(e => e.frontmatter.states.includes(code));
+    return {
+      params: { state: code },
+      props: { code, stateEntries },
+    };
+  });
+}
+
+const { code, stateEntries } = Astro.props;
+
+const stateNames: Record<string, string> = {
+  AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',
+  HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',
+  MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',
+  NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',
+  SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',
+  WI:'Wisconsin',WY:'Wyoming',DC:'District of Columbia'
+};
+
+const stateName = stateNames[code] || code;
+---
+
+<BaseLayout title={`${stateName} — How Law Can You Go?`} description={`Survival laws and debunks for ${stateName}. Every claim has receipts.`}>
+  <header class="top">
+    <div class="kicker">Jurisdiction page</div>
+    <h1>{stateName}</h1>
+    <p class="dek">Every entry on this page has been verified against a primary source for {stateName}. Last checked dates shown.</p>
+  </header>
+
+  {stateEntries.length === 0 && (
+    <div class="card">
+      <h4>Nothing here yet</h4>
+      <p>We have not published an entry specifically covering {stateName}. Check back, or <a href="/">browse all entries</a>.</p>
+    </div>
+  )}
+
+  {stateEntries.map(entry => {
+    const fm = entry.frontmatter;
+    return (
+      <EntryCard 
+        id={fm.id}
+        category={fm.category}
+        topic={fm.topic}
+        verdict={fm.verdict}
+        states={fm.states}
+        lastVerified={fm.last_verified}
+        riskLevel={fm.risk_level}
+      >
+        <div set:html={entry.compiledContent().slice(0, 400) + '...'} />
+      </EntryCard>
+    );
+  })}
+</BaseLayout>
