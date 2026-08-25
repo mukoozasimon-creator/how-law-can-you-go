@@ -10,7 +10,7 @@ jurisdiction_required: false
 receipts:
   - instrument: "Berkemer v. McCarty"
     citation: "468 U.S. 420 (1984)"
-    url: "https://www.law.cornell.edu/supremecourt/text/83-710"
+    url: "https://www.supreme.justia.com/cases/federal/us/468/420/"
     type: "case"
     quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
     offset: "Slip op. p. 439, lines 5-8"

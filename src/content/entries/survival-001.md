@@ -49,7 +49,7 @@ receipts:
 
   - instrument: "Berkemer v. McCarty"
     citation: "468 U.S. 420 (1984)"
-    url: "https://www.law.cornell.edu/supremecourt/text/83-710"
+    url: "https://www.supreme.justia.com/cases/federal/us/468/420/"
     type: "case"
     quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
     offset: "Slip op. p. 439, lines 5-8"
@@ -88,7 +88,7 @@ receipts:
 
   - instrument: "United States v. Landeros"
     citation: "913 F.3d 862 (9th Cir. 2019)"
-    url: "https://cdn.ca9.uscourts.gov/datastore/opinions/2019/01/23/16-10396.pdf"
+    url: "https://law.justia.com/cases/federal/appellate-courts/ca9/17-10217/17-10217-2019-01-11.html"
     type: "case"
     quote: "A demand for a passenger's identification is not permitted without an independent reason to suspect the passenger of wrongdoing."
     offset: "Slip op. p. 867, lines 18-21"
@@ -101,7 +101,7 @@ receipts:
 
   - instrument: "United States v. Soriano-Jarquin"
     citation: "492 F.3d 495 (4th Cir. 2007)"
-    url: "https://www.ca4.uscourts.gov/opinions/Published/064821.P.pdf"
+    url: "https://courtlistener.com/opinion/145790/united-states-v-soriano-jarquin/"
     type: "case"
     quote: "An officer may request that a passenger produce identification."
     offset: "Slip op. p. 499, lines 8-10"
@@ -114,7 +114,7 @@ receipts:
 
   - instrument: "Johnson v. Nocco"
     citation: "83 F.4th 896 (11th Cir. 2023)"
-    url: "https://www.ca11.uscourts.gov/opinions/pub/2023/22-10476.pdf"
+    url: "https://case-law.vlex.com/vid/johnson-v-nocco-1025759575"
     type: "case"
     quote: "Qualified immunity protects officers from suit unless they violate clearly established statutory or constitutional rights."
     offset: "Slip op. p. 901, lines 5-8"
@@ -127,7 +127,7 @@ receipts:
 
   - instrument: "State v. Rankin"
     citation: "151 Wn.2d 689 (2004)"
-    url: "https://www.courts.wa.gov/opinions/pdf/723258.pdf"
+    url: "https://courtlistener.com/opinion/2561783/state-v-rankin/"
     type: "case"
     quote: "Article I, section 7 of the Washington Constitution affords greater protection than the Fourth Amendment against police questioning."
     offset: "Slip op. p. 694, lines 12-15"
@@ -140,7 +140,7 @@ receipts:
 
   - instrument: "Presley v. State"
     citation: "227 So. 3d 95 (Fla. 2017)"
-    url: "https://www.floridasupremecourt.org/content/download/723398/7856042/file/SC16-1223.pdf"
+    url: "https://courtlistener.com/opinion/4861045/presley-v-state/"
     type: "case"
     quote: "A passenger in a lawfully stopped vehicle is not free to leave the scene of the traffic stop without police permission."
     offset: "Slip op. p. 97, lines 20-23"
@@ -153,7 +153,7 @@ receipts:
 
   - instrument: "Rakas v. Illinois"
     citation: "439 U.S. 128 (1978)"
-    url: "https://www.law.cornell.edu/supremecourt/text/77-5781"
+    url: "https://www.courtlistener.com/opinion/109953/rakas-v-illinois/"
     type: "case"
     quote: "A passenger does not have standing to challenge a search of a vehicle in which he was merely riding."
     offset: "Slip op. p. 148, lines 6-9"
