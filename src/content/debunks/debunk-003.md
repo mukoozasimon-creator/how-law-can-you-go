@@ -10,7 +10,7 @@ jurisdiction_required: false
 receipts:
   - instrument: "Berkemer v. McCarty"
     citation: "468 U.S. 420 (1984)"
-    url: "https://www.supremecourt.gov/opinions/83pdf/83-710.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/83-710"
     type: "case"
     quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
     offset: "Slip op. p. 439, lines 5-8"
@@ -23,7 +23,7 @@ receipts:
 
   - instrument: "Hiibel v. Sixth Judicial District Court"
     citation: "542 U.S. 177 (2004)"
-    url: "https://www.supremecourt.gov/opinions/03pdf/03-5554.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/03-5554"
     type: "case"
     quote: "The request for identity has an immediate relation to the purpose, rationale, and practical demands of a Terry stop."
     offset: "Slip op. p. 186, lines 12-15"
