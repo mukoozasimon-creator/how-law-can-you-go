@@ -51,7 +51,7 @@ const v = verdictLabels[fm.verdict] || verdictLabels.settled;
   {fm.receipts?.map((r: any) => (
     <StatuteBlock 
       quote={r.quote}
-      source={r.source}
+      instrument={r.instrument}
       citation={r.citation}
       url={r.url}
       type={r.type}
