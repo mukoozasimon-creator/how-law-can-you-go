@@ -1,22 +1,24 @@
 ---
 export interface Props {
   quote: string;
-  source: string;
+  source?: string;
+  instrument?: string;
   citation: string;
   url: string;
-  type: 'case' | 'statute';
+  type: 'case' | 'statute' | 'regulation' | 'report' | 'constitutional' | 'treaty';
 }
-const { quote, source, citation, url, type } = Astro.props;
+const { quote, source, instrument, citation, url, type } = Astro.props;
+const displaySource = instrument || source || 'Unknown source';
 ---
 
 <div class="statute-block" style="background:#f7f3e9;border-left:3px solid var(--blue);padding:14px 18px;margin:14px 0;border-radius:0 2px 2px 0;">
   <div style="font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;font-weight:700;">
-    {type === 'case' ? 'Case' : 'Statute'} &middot; <a href={url} target="_blank" rel="noopener noreferrer" style="color:var(--blue);">{citation}</a>
+    {type === 'case' ? 'Case' : type === 'statute' ? 'Statute' : type === 'regulation' ? 'Regulation' : type === 'report' ? 'Report' : type === 'constitutional' ? 'Constitutional' : 'Treaty'} &middot; <a href={url} target="_blank" rel="noopener noreferrer" style="color:var(--blue);">{citation}</a>
   </div>
   <blockquote style="margin:0;padding:0;font-size:14.5px;line-height:1.6;color:#3a332b;font-style:italic;">
     "{quote}"
   </blockquote>
   <div style="margin-top:10px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;color:var(--mute);">
-    Source: <a href={url} target="_blank" rel="noopener noreferrer" style="color:var(--blue);">{source}</a>
+    Source: <a href={url} target="_blank" rel="noopener noreferrer" style="color:var(--blue);">{displaySource}</a>
   </div>
 </div>

@@ -8,18 +8,18 @@ last_verified: "2026-08-25"
 risk_level: "low"
 jurisdiction_required: false
 receipts:
-  - instrument: "UK Law Commission — Legal Curiosities: Fact or Fable?"
-    citation: "UK Law Commission, March 2013"
-    url: "https://s3-eu-west-2.amazonaws.com/lawcom-prod-storage-11jsxou24uy7q/uploads/2015/06/lc350_legal_curiosities.pdf"
-    type: "report"
-    quote: "Killing a swan has never been an act of treason."
-    offset: "p. 12, lines 1-2"
+  - instrument: "Treason Act 1351"
+    citation: "25 Edw. 3. Stat. 5, c. 2 (1351)"
+    url: "https://www.legislation.gov.uk/aep/Edw3/25/5/section/2"
+    type: "statute"
+    quote: "When a Man doth compass or imagine the Death of our Lord the King, or of our Lady his Queen or of their eldest Son and Heir... or if a Man do levy War against our Lord the King in his Realm... or be adherent to the King's Enemies in his Realm, giving to them Aid and Comfort in the Realm, or elsewhere."
+    offset: "Treason Act 1351, preamble and section 2"
     repeal_checked: "2026-08-25"
     repeal_status: "active"
     verdict: "contradicts"
     review_date: "2026-08-25"
     source_verified: true
-    notes: "Law Commission Statute Law Repeals team traced claim to confusion between Crown's ceremonial right of ownership and statutory treason offences."
+    notes: "Primary source. Lists acts constituting treason: compassing the king's death, levying war, adhering to enemies. Killing a swan is not among them. The UK Law Commission's 2013 report Legal Curiosities: Fact or Fable? confirmed this finding, but the original PDF is no longer available online (link rot verified 25 Aug 2026)."
 ---
 
 <div class="quip">That thing you have been telling people at parties for ten years is not real.</div>
