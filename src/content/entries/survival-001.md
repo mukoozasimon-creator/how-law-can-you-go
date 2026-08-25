@@ -10,7 +10,7 @@ jurisdiction_required: true
 receipts:
   - instrument: "Brendlin v. California"
     citation: "551 U.S. 249 (2007)"
-    url: "https://www.supremecourt.gov/opinions/06pdf/06-8120.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/06-8120"
     type: "case"
     quote: "A traffic stop of a car communicates to a reasonable passenger that he or she is not free to terminate the encounter with the police and go about his or her business."
     offset: "Slip op. p. 251, lines 8-12"
@@ -23,7 +23,7 @@ receipts:
 
   - instrument: "Maryland v. Wilson"
     citation: "519 U.S. 408 (1997)"
-    url: "https://www.supremecourt.gov/opinions/96pdf/95-1268.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/95-1268"
     type: "case"
     quote: "An officer making a traffic stop may order passengers to exit the vehicle pending completion of the stop."
     offset: "Slip op. p. 415, lines 3-5"
@@ -36,7 +36,7 @@ receipts:
 
   - instrument: "Arizona v. Johnson"
     citation: "555 U.S. 323 (2009)"
-    url: "https://www.supremecourt.gov/opinions/08pdf/07-1122.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/07-1122"
     type: "case"
     quote: "A police officer may conduct a patdown search of a passenger if the officer has a reasonable suspicion that the passenger is armed and dangerous."
     offset: "Slip op. p. 327, lines 10-14"
@@ -49,7 +49,7 @@ receipts:
 
   - instrument: "Berkemer v. McCarty"
     citation: "468 U.S. 420 (1984)"
-    url: "https://www.supremecourt.gov/opinions/83pdf/83-710.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/83-710"
     type: "case"
     quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
     offset: "Slip op. p. 439, lines 5-8"
@@ -62,7 +62,7 @@ receipts:
 
   - instrument: "Rodriguez v. United States"
     citation: "575 U.S. 348 (2015)"
-    url: "https://www.supremecourt.gov/opinions/14pdf/13-9972_8m58.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/13-9972"
     type: "case"
     quote: "A seizure justified only by a police-observed traffic violation becomes unlawful if it is prolonged beyond the time reasonably required to complete the mission of issuing a ticket."
     offset: "Slip op. p. 352, lines 2-6"
@@ -75,7 +75,7 @@ receipts:
 
   - instrument: "Hiibel v. Sixth Judicial District Court"
     citation: "542 U.S. 177 (2004)"
-    url: "https://www.supremecourt.gov/opinions/03pdf/03-5554.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/03-5554"
     type: "case"
     quote: "The request for identity has an immediate relation to the purpose, rationale, and practical demands of a Terry stop."
     offset: "Slip op. p. 186, lines 12-15"
@@ -153,7 +153,7 @@ receipts:
 
   - instrument: "Rakas v. Illinois"
     citation: "439 U.S. 128 (1978)"
-    url: "https://www.supremecourt.gov/opinions/77pdf/77-5781.pdf"
+    url: "https://www.law.cornell.edu/supremecourt/text/77-5781"
     type: "case"
     quote: "A passenger does not have standing to challenge a search of a vehicle in which he was merely riding."
     offset: "Slip op. p. 148, lines 6-9"
