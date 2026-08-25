@@ -153,7 +153,7 @@ receipts:
 
   - instrument: "Rakas v. Illinois"
     citation: "439 U.S. 128 (1978)"
-    url: "https://www.courtlistener.com/opinion/109953/rakas-v-illinois/"
+    url: "https://courtlistener.com/opinion/109953/rakas-v-illinois/"
     type: "case"
     quote: "A passenger does not have standing to challenge a search of a vehicle in which he was merely riding."
     offset: "Slip op. p. 148, lines 6-9"
