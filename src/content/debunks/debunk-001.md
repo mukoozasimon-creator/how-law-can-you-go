@@ -4,15 +4,22 @@ category: "Debunk"
 topic: "It is treason to kill a swan in the UK"
 verdict: "debunked"
 states: ["UK"]
-last_verified: "2026-08-23"
+last_verified: "2026-08-25"
 risk_level: "low"
 jurisdiction_required: false
 receipts:
-  - source: "UK Law Commission — Legal Curiosities: Fact or Fable?"
+  - instrument: "UK Law Commission — Legal Curiosities: Fact or Fable?"
     citation: "UK Law Commission, March 2013"
     url: "https://s3-eu-west-2.amazonaws.com/lawcom-prod-storage-11jsxou24uy7q/uploads/2015/06/lc350_legal_curiosities.pdf"
     type: "report"
     quote: "Killing a swan has never been an act of treason."
+    offset: "p. 12, lines 1-2"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "contradicts"
+    review_date: "2026-08-25"
+    source_verified: true
+    notes: "Law Commission Statute Law Repeals team traced claim to confusion between Crown's ceremonial right of ownership and statutory treason offences."
 ---
 
 <div class="quip">That thing you have been telling people at parties for ten years is not real.</div>
@@ -29,5 +36,5 @@ receipts:
 </div>
 
 <div class="cite">
-Source: UK Law Commission, <em>Legal Curiosities: Fact or Fable?</em> (March 2013), p. 12. Checked 23 Aug 2026.
+Source: UK Law Commission, <em>Legal Curiosities: Fact or Fable?</em> (March 2013), p. 12. Checked 25 Aug 2026.
 </div>

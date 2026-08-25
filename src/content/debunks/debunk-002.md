@@ -4,15 +4,22 @@ category: "Debunk"
 topic: "There is a federal law that lets you drive to a lit area before pulling over"
 verdict: "debunked"
 states: ["US"]
-last_verified: "2026-08-23"
+last_verified: "2026-08-25"
 risk_level: "high"
 jurisdiction_required: false
 receipts:
-  - source: "US Code — No federal eluding statute found"
+  - instrument: "Negative finding — federal eluding statute"
     citation: "No federal statute found"
     url: "https://uscode.house.gov/"
     type: "statute"
     quote: ""
+    offset: "N/A"
+    repeal_checked: "2026-08-25"
+    repeal_status: "uncertain"
+    verdict: "silent"
+    review_date: "2026-08-25"
+    source_verified: true
+    notes: "Searched US Code Title 18 (Crimes) and Title 49 (Transportation). No federal statute creates a right to continue driving to a lit area before stopping for police. Negative finding documented per Citation Standard v1.0."
 ---
 
 <div class="quip">The safety advice that could put you in prison.</div>
@@ -30,5 +37,5 @@ receipts:
 </div>
 
 <div class="cite">
-Negative finding: We read the US Code, CFR, and 50 state vehicle codes. No statute was found creating a right to continue driving to a lit area before stopping for police. If you know of one, send us the citation. Checked 23 Aug 2026.
+Negative finding: We read the US Code, CFR, and 50 state vehicle codes. No statute was found creating a right to continue driving to a lit area before stopping for police. If you know of one, send us the citation. Checked 25 Aug 2026.
 </div>

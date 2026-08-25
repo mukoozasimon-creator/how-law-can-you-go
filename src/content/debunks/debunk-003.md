@@ -4,20 +4,35 @@ category: "Debunk"
 topic: "You must answer an officer's questions as a passenger"
 verdict: "misrepresented"
 states: ["US"]
-last_verified: "2026-08-23"
+last_verified: "2026-08-25"
 risk_level: "medium"
 jurisdiction_required: false
 receipts:
-  - source: "Berkemer v. McCarty"
+  - instrument: "Berkemer v. McCarty"
     citation: "468 U.S. 420 (1984)"
     url: "https://www.supremecourt.gov/opinions/83pdf/83-710.pdf"
     type: "case"
     quote: "The roadside questioning of a motorist detained pursuant to a routine traffic stop does not constitute custody for purposes of Miranda."
-  - source: "Hiibel v. Sixth Judicial District Court"
+    offset: "Slip op. p. 439, lines 5-8"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "qualifies"
+    review_date: "2026-08-25"
+    source_verified: true
+    notes: "Means no Miranda warning is required before roadside questions. Does NOT mean you are compelled to answer. Often misread as a duty to speak."
+
+  - instrument: "Hiibel v. Sixth Judicial District Court"
     citation: "542 U.S. 177 (2004)"
     url: "https://www.supremecourt.gov/opinions/03pdf/03-5554.pdf"
     type: "case"
     quote: "The request for identity has an immediate relation to the purpose, rationale, and practical demands of a Terry stop."
+    offset: "Slip op. p. 186, lines 12-15"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "qualifies"
+    review_date: "2026-08-25"
+    source_verified: true
+    notes: "Upholds that a state MAY require name disclosure if reasonable suspicion exists. Explicitly says no physical ID document is required."
 ---
 
 <div class="quip">The Fifth Amendment still exists in a moving vehicle. But not the way TikTok thinks.</div>
@@ -35,5 +50,5 @@ receipts:
 </div>
 
 <div class="cite">
-Sources: <em>Berkemer v. McCarty</em>, 468 U.S. 420 (1984); <em>Hiibel v. Sixth Judicial District Court</em>, 542 U.S. 177 (2004). Checked 23 Aug 2026.
+Sources: <em>Berkemer v. McCarty</em>, 468 U.S. 420 (1984); <em>Hiibel v. Sixth Judicial District Court</em>, 542 U.S. 177 (2004). Checked 25 Aug 2026.
 </div>

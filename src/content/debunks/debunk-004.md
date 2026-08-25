@@ -4,15 +4,22 @@ category: "Debunk"
 topic: "It is illegal to carry a plank along a pavement in London"
 verdict: "settled"
 states: ["UK"]
-last_verified: "2026-08-23"
+last_verified: "2026-08-25"
 risk_level: "low"
 jurisdiction_required: false
 receipts:
-  - source: "Metropolitan Police Act 1839, s. 54"
+  - instrument: "Metropolitan Police Act 1839"
     citation: "Metropolitan Police Act 1839, s. 54"
     url: "https://www.legislation.gov.uk/ukpga/1839/47/section/54"
     type: "statute"
     quote: "Every person who in any thoroughfare shall carry any ladder, pole, plank, or other bulky article, in such manner as to inconvenience or obstruct the passengers..."
+    offset: "Metropolitan Police Act 1839, s. 54, lines 1-3"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "supports"
+    review_date: "2026-08-25"
+    source_verified: true
+    notes: "Still technically in force. Enforced rarely. Confirmed by UK Law Commission Legal Curiosities report (2013)."
 ---
 
 <div class="quip">This one is actually true, and the sentence is better than the myth.</div>
@@ -24,5 +31,5 @@ receipts:
 </div>
 
 <div class="cite">
-Source: Metropolitan Police Act 1839, s. 54 (available on legislation.gov.uk, Open Government Licence v3.0). Checked 23 Aug 2026.
+Source: Metropolitan Police Act 1839, s. 54 (available on legislation.gov.uk, Open Government Licence v3.0). Checked 25 Aug 2026.
 </div>

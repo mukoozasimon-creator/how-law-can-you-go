@@ -4,20 +4,35 @@ category: "Property"
 topic: "You found cash on the floor at Walmart. Can you keep it?"
 verdict: "varies"
 states: ["GA"]
-last_verified: "2026-08-24"
+last_verified: "2026-08-25"
 risk_level: "high"
 jurisdiction_required: true
 receipts:
-  - source: "O.C.G.A. 16-8-6"
+  - instrument: "Official Code of Georgia Annotated 16-8-6"
     citation: "O.C.G.A. 16-8-6"
     url: "https://law.justia.com/codes/georgia/title-16/chapter-8/article-1/section-16-8-6/"
     type: "statute"
     quote: "A person commits the offense of theft of lost or mislaid property when he comes into control of property that he knows or learns to have been lost or mislaid and appropriates the property to his own use without first taking reasonable measures to restore the property to the owner."
-  - source: "Shannon v. State"
+    offset: "O.C.G.A. 16-8-6, lines 1-4"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "supports"
+    review_date: "2026-08-25"
+    source_verified: false
+    notes: "Read via Justia. Official source is Georgia Code. Statute does not define 'reasonable measures'; fact question for jury."
+
+  - instrument: "Shannon v. State"
     citation: "258 Ga. App. 689 (2002)"
     url: "https://casetext.com/case/shannon-v-state-44"
     type: "case"
     quote: "The defendant admitted she never attempted to return the bag to the rightful owner. The Court found beyond a reasonable doubt that Shannon committed the offense of theft of mislaid property."
+    offset: "258 Ga. App. at 691, lines 5-8"
+    repeal_checked: "2026-08-25"
+    repeal_status: "active"
+    verdict: "supports"
+    review_date: "2026-08-25"
+    source_verified: false
+    notes: "Read via Casetext secondary summary. Original opinion available on Georgia Courts site."
 ---
 
 <div class="quip">Finders keepers is not a legal doctrine. It is a nursery rhyme that can put you in prison.</div>
@@ -57,5 +72,5 @@ receipts:
 <div class="cite">
 <b>Negative finding:</b> We could not locate a Georgia statute that creates a formal "finder's claim" procedure or a statutory period after which found property becomes the finder's. Some states have such laws; Georgia appears to rely on the common law for ownership disputes and 16-8-6 for criminal liability. If you know of a Georgia statute governing finder's title, send us the citation.
 <br><br>
-Sources: O.C.G.A. 16-8-6; <em>Shannon v. State</em>, 258 Ga. App. 689 (2002). Checked 24 Aug 2026.
+Sources: O.C.G.A. 16-8-6; <em>Shannon v. State</em>, 258 Ga. App. 689 (2002). Checked 25 Aug 2026.
 </div>
