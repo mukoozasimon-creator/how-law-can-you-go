@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://howlawcanyougo.pages.dev/sitemap-index.xml
-
-# Crawl-delay is a suggestion, not a directive
-# We respect your crawl budget. This is a small static site.
+Sitemap: https://how-law-can-you-go.pages.dev/sitemap.xml
