@@ -5,8 +5,8 @@ import EntryCard from '../components/EntryCard.astro';
 import BadgeTray from '../components/BadgeTray.astro';
 import FlexCard from '../components/FlexCard.astro';
 
-const entries = await Astro.glob('./content/entries/*.md');
-const debunks = await Astro.glob('./content/debunks/*.md');
+const entries = await Astro.glob('../content/entries/*.md');
+const debunks = await Astro.glob('../content/debunks/*.md');
 const allContent = [...entries, ...debunks];
 
 function getFrontmatter(m: any) {
