@@ -42,7 +42,7 @@ Most of the 30 traffic-stop entries already follow this (official `.gov` legisla
 
 ## Traffic-stop series coverage
 
-30 of 50 states + DC done: AL, AZ, CA, CO, CT, FL, GA, IL, IN, KY, LA, MA, MD, MI, MN, MO, NC, NJ, NY, OH, OK, OR, PA, SC, TN, TX, UT, VA, WA, WI.
+See `docs/state-research-protocol.md` for the exact method to add a state, including why this is slower than it looks and the reusable federal citations. 30 of 50 states + DC done: AL, AZ, CA, CO, CT, FL, GA, IL, IN, KY, LA, MA, MD, MI, MN, MO, NC, NJ, NY, OH, OK, OR, PA, SC, TN, TX, UT, VA, WA, WI.
 
 Remaining: AK, AR, DC, DE, HI, IA, ID, KS, ME, MS, MT, ND, NE, NH, NM, NV, RI, SD, VT, WV, WY.
 
