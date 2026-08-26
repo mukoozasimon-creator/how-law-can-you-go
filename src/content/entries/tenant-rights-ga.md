@@ -20,7 +20,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 - **Landlord to tenant:** 60 days written notice
 - **Tenant to landlord:** 30 days written notice
 
-**Live link:** https://code.lexisnexis.com/georgia/title-44/chapter-7
+**Live link:** https://law.justia.com/codes/georgia/2024/title-44/chapter-7/section-44-7-7/
 **Repeal check:** Active. No repeal pending as of August 2026.
 **Verdict:** 60 days written notice from landlord for tenancy-at-will termination. Same notice applies to rent increases in tenancy-at-will arrangements.
 
@@ -28,7 +28,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 
 > "OCGA § 44-7-50(a) governs the pre-filing demand for possession that precedes every dispossessory action; the demand may be oral or written, and there is no statutory waiting period between the demand and the dispossessory filing." cite🛠web_search:2#3:~:text=OCGA § 44-7-50(a) governs the pre-filing demand for possession... the demand may be oral or written, and there is no statutory waiting period between the demand and the dispossessory filing.
 
-**Live link:** https://code.lexisnexis.com/georgia/title-44/chapter-7
+**Live link:** https://law.justia.com/codes/georgia/2024/title-44/chapter-7/section-44-7-50/
 **Repeal check:** Active. No repeal pending as of August 2026.
 **Verdict:** Demand for possession required before filing dispossessory. Can be oral or written. No fixed waiting period for fixed-term leases.
 
@@ -36,7 +36,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 
 > "Effective July 1, 2024, for leases entered or renewed on or after that date, the Act introduced four key changes: a warranty that premises must be fit for human habitation, a cap on security deposits at two months' rent, a mandatory 3-business-day cure period before filing for eviction for non-payment, and the addition of cooling to the list of utilities a landlord cannot shut off during eviction proceedings." cite🛠web_search:2#7:~:text=Effective July 1, 2024, for leases entered or renewed on or after that date, the Act introduced four key changes: a warranty that premises must be fit for human habitation, a cap on security deposits at two months' rent, a mandatory 3-business-day cure period before filing for eviction for non-payment
 
-**Live link:** https://code.lexisnexis.com/georgia/title-44/chapter-7
+**Live link:** https://law.justia.com/codes/georgia/2024/title-44/chapter-7/
 **Repeal check:** Active. Enacted 2024. No repeal pending as of August 2026.
 **Verdict:** For leases entered/renewed on or after July 1, 2024: 3-business-day cure period for nonpayment; 2-month security deposit cap; implied warranty of habitability.
 
@@ -44,7 +44,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 
 > "A landlord may not retaliate against a tenant who has complained to a governmental agency about a code violation, organized or been a member of a tenants' union, or exercised rights under the lease or Chapter 83." cite🛠web_search:2#7:~:text=A landlord may not retaliate against a tenant who has complained to a governmental agency about a code violation, organized or been a member of a tenants' union, complained to the landlord about a habitability issue, or exercised rights under the lease or Chapter 83.
 
-**Live link:** https://code.lexisnexis.com/georgia/title-44/chapter-7
+**Live link:** https://law.justia.com/codes/georgia/2024/title-44/chapter-7/section-44-7-24/
 **Repeal check:** Active. No repeal pending as of August 2026.
 **Verdict:** 3-month protected window after tenant's protected activity.
 
@@ -52,7 +52,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 
 > "OCGA § 44-7-19 preempts any county or municipal rent regulation." cite🛠web_search:2#3:~:text=Georgia has no statewide just-cause rule, no operating rent control (OCGA § 44-7-19 preempts any county or municipal rent regulation)
 
-**Live link:** https://code.lexisnexis.com/georgia/title-44/chapter-7
+**Live link:** https://law.justia.com/codes/georgia/2024/title-44/chapter-7/section-44-7-19/
 **Repeal check:** Active. No repeal pending as of August 2026.
 **Verdict:** No rent control anywhere in Georgia. Statewide preemption.
 
@@ -81,7 +81,7 @@ In Georgia, your landlord must give you **60 days' written notice** to terminate
 
 ## Sources
 
-- Official Code of Georgia Annotated, Title 44, Chapter 7 - https://code.lexisnexis.com/georgia/title-44/chapter-7
+- Official Code of Georgia Annotated, Title 44, Chapter 7 - https://law.justia.com/codes/georgia/2024/title-44/chapter-7/
 - DocDraft - Georgia Notice to Vacate: 2026 Landlord Guide - https://www.docdraft.ai/legal-guides/notice-to-vacate/georgia
 - RIOO App - Georgia Landlord-Tenant Law Under O.C.G.A. Title 44 - https://riooapp.com/blog/georgia-landlord-tenant-law-ocga-title-44-property-managers-guide
 - Lofty.ai - Georgia Landlord-Tenant Laws (2026) - https://www.lofty.ai/landlord-tenant-laws/georgia
